@@ -1,0 +1,4188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Renovation | Modern Recipe Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512' fill='%23ff6b6b'><path d='M416 0C304 0 224 80 224 192c0 112 80 192 192 192h18.4c21.3 0 32 25.9 17 41l-80 80c-9.4 9.4-24.6 9.4-33.9 0l-80-80c-15-15-4.4-41 17-41h18.4c79.5 0 144-64.5 144-144V16c0-8.8-7.2-16-16-16zm-288 0c-8.8 0-16 7.2-16 16v416c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V16c0-8.8-7.2-16-16-16H128z'/></svg>">
+    <style>
+
+        /* Global Styles */
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --dark: #292f36;
+            --light: #f7fff7;
+            --accent: #ffbe0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            margin-top: 80px;
+        }
+       html {
+    scroll-padding-top: 80px; /* Prevents navbar from covering content when scrolling */
+}
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Navigation */
+        /* Navigation */
+/* Navigation */
+nav {
+    position: fixed; /* Keeps navbar fixed at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures navbar stays above other content */
+    background-color: var(--dark);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid var(--primary);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.nav-logo {
+     padding-left: 2rem; /* This adds two spaces worth of padding */
+    
+    /* Keep all your existing properties below */
+    color: var(--light);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Remove any existing padding/margin if they conflict */
+    padding-right: 0;
+    margin-left: 0;
+}
+
+.nav-logo i {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.nav-logo:hover {
+    transform: translateY(-2px);
+}
+
+.nav-logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0 2rem;
+}
+
+.nav-links li {
+    margin-left: 0;
+}
+
+.nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.nav-links a i {
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary);
+    transition: width 0.3s;
+    border-radius: 3px;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a:hover i,
+.nav-links a.active i {
+    transform: scale(1.2);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.hamburger:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* Mobile menu styles (keep your existing mobile styles) */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--dark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding: 0;
+        transition: all 0.5s;
+        z-index: 99;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 0;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links a {
+        font-size: 1.3rem;
+        gap: 0.8rem;
+    }
+    
+    .nav-links a i {
+        font-size: 1.1rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--dark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: all 0.5s;
+        z-index: 99;
+        border-top: 3px solid var(--primary);
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 0;
+    }
+    
+    .nav-links a {
+        font-size: 1.3rem;
+        padding: 1rem 2rem;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+}
+        
+        /* Hero Search */
+        /* Enhanced Search Bar Styles */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 5px 25px rgba(255,107,107,0.3);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 1.2rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    outline: none;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.search-box button {
+    position: relative;
+    right: 5px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(255,107,107,0.3);
+}
+
+.search-box button:hover {
+    background: #ff5252;
+    transform: rotate(10deg) scale(1.1);
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 0 0 15px 15px;
+    margin-top: -5px; /* Overlap slightly with search box */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.search-suggestions.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-suggestions div {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-family: 'Calibri', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.search-suggestions div:last-child {
+    border-bottom: none;
+}
+
+.search-suggestions div:hover {
+    background: rgba(255, 107, 107, 0.1);
+    color: var(--primary);
+    padding-left: 25px;
+}
+
+.search-suggestions div.highlight {
+      background: rgba(255, 107, 107, 0.1);
+    color: var(--primary);
+    padding-left: 25px;
+}
+.search-suggestions i {
+            color: var(--primary);
+    font-size: 0.9rem;
+    width: 20px;
+    text-align: center;
+        }
+.search-box.suggestions-active {
+            border-radius: 15px 15px 0 0;
+    border-bottom: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 101;
+        }
+.search-suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-suggestions::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 15px 0;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+    background: rgba(255, 107, 107, 0.3);
+    border-radius: 4px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 107, 107, 0.5);
+}
+#search-input {
+            font-family: 'Calibri', sans-serif;
+        }
+
+/* Search bar animations */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,107,107,0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255,107,107,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,107,107,0); }
+}
+
+.search-box.pulse {
+    animation: pulse 1s;
+}
+        /* Featured Section */
+        .featured {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: left;
+            font-size: 1.4rem;
+            color: #666;
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            padding: 0;
+        }
+         
+        .text-subtitle{
+         font-size: 1.4rem;
+         color: #666;
+         max-width: 800px;
+         margin: 0 auto 3rem;
+         line-height: 1.6;
+         text-align: center; /* Ensure it's centered */
+         padding: 0;
+        }
+
+        .textn-subtitle{
+         text-align: center;
+            font-size: 1.4rem;
+            color: #666;
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            padding: 0;
+
+
+        }
+
+        .filter-buttons {
+            margin: 2rem 0 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .filter-btn {
+            padding: 0.7rem 2rem;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+        
+        .recipes-grid {
+           display: grid;
+           grid-template-columns: repeat(3, 1fr);
+           gap: 2.5rem;
+           margin-top: 3rem;
+        }
+         @media (max-width: 992px) {
+    .recipes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.load-more {
+    display: block;
+    margin: 3rem auto 0;
+    padding: 1rem 3rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.load-more:hover {
+    background: #ff5252;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+}
+
+        
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            position: relative;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .recipe-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .recipe-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .recipe-card:hover .recipe-img img {
+            transform: scale(1.1);
+        }
+        
+        .recipe-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .recipe-content {
+            padding: 1.8rem;
+        }
+        
+        .recipe-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .recipe-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .recipe-desc {
+            margin-bottom: 1.8rem;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(255,107,107,0.3);
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f9f9f9;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+             
+        }
+        
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-text {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* Team Section */
+        .team {
+            text-align: center;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .member-img {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+    border: 5px solid transparent;
+    transition: 
+        transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+        border-color 0.3s ease;
+        }
+
+.member-img:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 107, 107, 0.9);
+}
+
+.member-img:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+       .member-img img {
+     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.member-img:hover img {
+    transform: scale(1.08); /* Slightly reduced zoom */
+}
+
+        
+        .member-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .member-bio {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+ 
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: #f1f1f1;
+            border-radius: 50%;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+.fa-x-twitter {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 700; /* X needs higher weight */
+}
+        
+        /* Categories Section */
+        .categories {
+            background: #f9f9f9;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+        
+        .newsletter .section-title {
+            color: white;
+        }
+        
+        .newsletter .section-subtitle {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .newsletter-form button {
+            padding: 0 2.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button:hover {
+            background: #ff5252;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: #f9f9f9;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .contact-info p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+        
+        .contact-text p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .contact-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .contact-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #f1f1f1;
+            border-radius: 50%;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        .contact-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255,107,107,0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Recipe Modal */
+        .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .recipe-modal {
+            background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) rgba(0,0,0,0.1);
+        }
+        
+        .modal-overlay.active .recipe-modal {
+            transform: translateY(0);
+        }
+        .recipe-modal::-webkit-scrollbar {
+    width: 12px;
+}
+
+.recipe-modal::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 0 15px 15px 0;
+}
+
+.recipe-modal::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.close-modal:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: #ff5252;
+}
+        
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff5252;
+}
+
+        .modal-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .modal-img {
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .modal-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+        
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        
+        .modal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .modal-desc {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-tag {
+            background: #f1f1f1;
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        
+        .ingredients, .instructions {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .ingredients-list, .instructions-list {
+            list-style-type: none;
+        }
+        
+        .ingredients-list li {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ingredients-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+        
+        .instructions-list {
+            counter-reset: step;
+        }
+        
+        .instructions-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        
+        .instructions-list li::before {
+            content: counter(step);
+            counter-increment: step;
+            background: var(--primary);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .notification-icon {
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.6rem;
+            margin-bottom: 3rem;
+            justify-items: center;
+        }
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: start; /* Align left on smaller screens */
+    }
+    
+    .footer-column {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.8rem;
+            
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-about p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            text-justify: inter-word;
+           
+            
+        }
+        
+        .footer-links ul, .footer-categories ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li, .footer-categories ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links ul li a, .footer-categories ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links ul li a:hover, .footer-categories ul li a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links ul li a::before, .footer-categories ul li a::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.6rem;
+            color: var(--primary);
+        }
+        
+        .footer-contact ul {
+            list-style: none;
+        }
+        
+        .footer-contact ul li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        
+        .footer-contact ul li i {
+            color: var(--primary);
+            margin-top: 0.2rem;
+        }
+        
+        .footer-contact ul li span {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        
+        /* Back to Top Button */
+        
+.back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #ff5252;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-img {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .modal-header {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-img {
+                height: 300px;
+            }
+        }
+.hero-branding {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.hero-logo {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.hero-logo i {
+   color: var(--primary);
+    font-size: 3rem;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo span {
+    color: var(--primary);
+}
+.tagline, 
+.search-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Animation on hover */
+.hero-logo:hover i {
+    transform: rotate(15deg) scale(1.1);
+}
+
+
+}
+@media (max-width: 768px) {
+    .hero-logo {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    
+    .hero-logo i {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.4rem;
+    }
+}
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: all 0.5s;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .hamburger {
+                display: block;
+                color: white;
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 5px;
+            }
+            
+            .newsletter-form input {
+                border-radius: 5px 5px 0 0;
+                margin-bottom: 1px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 0 0 5px 5px;
+                padding: 1rem;
+            }
+            
+            .modal-body {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .recipes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-members {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</script>
+</head>
+<body>
+
+ <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fas fa-utensils"></i> Food<span>Renovation</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#featured"><i class="fas fa-utensil-spoon"></i> Recipes</a></li>
+                <li><a href="#ingredients"><i class="fas fa-carrot"></i> Ingredients</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <!-- Header with Hero Image -->
+    <header id="home">
+        <div class="container">
+            <div class="hero-branding">
+                <a href="#" class="hero-logo">
+                    <i class="fas fa-utensils"></i> Food<span>Renovation</span>
+                </a>
+            </div>
+            <p class="tagline">Discover recipes based on ingredients you have - No need for special trips to the grocery store!</p>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search by ingredients (e.g. chicken, rice)" autocomplete="off">
+                    <button id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-suggestions" id="search-suggestions"></div>
+                </div>
+            </div>
+            <a href="#featured" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </header>
+
+   
+    <!-- Featured Recipes Section -->
+   <section class="featured" id="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Recipes</h2>
+            <p class="section-subtitle text-subtitle">Discover delicious recipes you can make with ingredients you already have</p>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Recipes</button>
+                <button class="filter-btn" data-category="quick">Quick Meals</button>
+                <button class="filter-btn" data-category="vegetarian">Vegetarian</button>
+                <button class="filter-btn" data-category="dessert">Desserts</button>
+                <button class="filter-btn" data-category="comfort">Comfort Food</button>
+            </div>
+            
+            <div class="recipes-grid" id="recipes-container">
+                <!-- Recipes will be dynamically inserted here -->
+            </div>
+            <button class="btn load-more" id="load-more">Load More Recipes</button>
+        </div>
+    </section>
+
+    <!-- New Ingredients Section -->
+    <section class="ingredients" id="ingredients">
+        <div class="container">
+            <h2 class="section-title">Browse By Ingredients</h2>
+            <p class="section-subtitle">Select ingredients you have to find matching recipes</p>
+            
+            <div class="ingredients-grid">
+                <div class="ingredient-category">
+                    <h3>Proteins</h3>
+                    <div class="ingredient-tags">
+                        <span class="ingredient-tag" data-ingredient="chicken">Chicken</span>
+                        <span class="ingredient-tag" data-ingredient="beef">Beef</span>
+                        <span class="ingredient-tag" data-ingredient="fish">Fish</span>
+                        <span class="ingredient-tag" data-ingredient="eggs">Eggs</span>
+                        <span class="ingredient-tag" data-ingredient="tofu">Tofu</span>
+                        <span class="ingredient-tag" data-ingredient="lentils">Lentils</span>
+                    </div>
+                </div>
+                
+                <div class="ingredient-category">
+                    <h3>Vegetables</h3>
+                    <div class="ingredient-tags">
+                        <span class="ingredient-tag" data-ingredient="potatoes">Potatoes</span>
+                        <span class="ingredient-tag" data-ingredient="tomatoes">Tomatoes</span>
+                        <span class="ingredient-tag" data-ingredient="onions">Onions</span>
+                        <span class="ingredient-tag" data-ingredient="carrots">Carrots</span>
+                        <span class="ingredient-tag" data-ingredient="spinach">Spinach</span>
+                        <span class="ingredient-tag" data-ingredient="bell peppers">Bell Peppers</span>
+                    </div>
+                </div>
+                
+                <div class="ingredient-category">
+                    <h3>Pantry Staples</h3>
+                    <div class="ingredient-tags">
+                        <span class="ingredient-tag" data-ingredient="rice">Rice</span>
+                        <span class="ingredient-tag" data-ingredient="pasta">Pasta</span>
+                        <span class="ingredient-tag" data-ingredient="flour">Flour</span>
+                        <span class="ingredient-tag" data-ingredient="sugar">Sugar</span>
+                        <span class="ingredient-tag" data-ingredient="oil">Oil</span>
+                        <span class="ingredient-tag" data-ingredient="butter">Butter</span>
+                    </div>
+                </div>
+                
+                <div class="ingredient-category">
+                    <h3>Dairy</h3>
+                    <div class="ingredient-tags">
+                        <span class="ingredient-tag" data-ingredient="milk">Milk</span>
+                        <span class="ingredient-tag" data-ingredient="cheese">Cheese</span>
+                        <span class="ingredient-tag" data-ingredient="yogurt">Yogurt</span>
+                        <span class="ingredient-tag" data-ingredient="cream">Cream</span>
+                    </div>
+                </div>
+                  
+               <div class="ingredient-category">
+    <h3>Spices</h3>
+    <div class="ingredient-tags">
+      
+        <span class="ingredient-tag" data-ingredient="turmeric">Turmeric</span>
+        <span class="ingredient-tag" data-ingredient="garam masala">Garam Masala</span>
+        <span class="ingredient-tag" data-ingredient="red chili powder">Red Chili Powder</span>
+        
+    </div>
+</div>
+
+<div class="ingredient-category">
+    <h3>Staples</h3>
+    <div class="ingredient-tags">
+        <span class="ingredient-tag" data-ingredient="basmati rice">Basmati Rice</span>
+        <span class="ingredient-tag" data-ingredient="almonds">Almonds</span>
+      
+        <span class="ingredient-tag" data-ingredient="green chilies">Green Chilies</span>
+    </div>
+</div>
+            </div>
+            
+            <div class="selected-ingredients" id="selected-ingredients">
+                <h3>Your Selected Ingredients:</h3>
+                <div class="selected-tags" id="selected-tags">
+                    <span class="empty-message">No ingredients selected yet</span>
+                </div>
+                <button class="btn" id="find-recipes-btn">Find Recipes</button>
+                <button class="btn btn-outline" id="clear-ingredients">Clear All</button>
+            </div>
+        </div>
+    </section>
+
+ <!-- Categories Section -->
+     <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Recipe Categories</h2>
+            <p class="section-subtitle">Browse recipes by category</p>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="quick">
+                    <div class="category-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="category-title">Quick Meals</h3>
+                    <p class="category-desc">30 minutes or less recipes for when you're short on time.</p>
+                </div>
+                
+                <div class="category-card" data-category="vegetarian">
+                    <div class="category-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="category-title">Vegetarian</h3>
+                    <p class="category-desc">Plant-based recipes full of flavor and nutrition.</p>
+                </div>
+                
+                <div class="category-card" data-category="comfort">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="category-title">Comfort Food</h3>
+                    <p class="category-desc">Hearty, satisfying meals that feel like home.</p>
+                </div>
+                
+                <div class="category-card" data-category="dessert">
+                    <div class="category-icon">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <h3 class="category-title">Desserts</h3>
+                    <p class="category-desc">Sweet treats to satisfy any craving.</p>
+                </div>
+                
+                <div class="category-card" data-category="healthy">
+                    <div class="category-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="category-title">Healthy Options</h3>
+                    <p class="category-desc">Nutritious meals that don't sacrifice flavor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About Recipe Finder">
+                </div>
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>At Food Renovation, we believe everyone should be able to make delicious meals without needing to buy special ingredients. Our platform helps you discover recipes based on what you already have in your kitchen.</p>
+                    <p>Founded in 2025, our team of food enthusiasts and developers created this tool to solve the common problem of staring at your fridge and pantry, wondering what to cook with the ingredients you have on hand.</p>
+                    <p>We've helped thousands of home cooks reduce food waste and save money by making the most of their existing ingredients.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-text">Recipes in Database</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-text">Ingredients Supported</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-text">Happy Cooks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Team Section -->
+<section class="team" id="team">
+    <div class="container">
+        <h2 class="section-title">Meet Our Team</h2>
+        <p class="section-subtitle text-subtitle">The brilliant minds behind our culinary innovations</p>
+        
+        <div class="team-members">
+            <!-- Member 1 -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marco Vitali">
+                </div>
+                <h3 class="member-name">Zeeshan Ali</h3>
+                <p class="member-role">Founder & Executive Chef</p>
+                <p class="member-bio">With over 20 years of experience in molecular gastronomy, Zeeshan brings innovation and precision to every recipe.</p>
+                <div class="social-links">
+    <a href="https://www.facebook.com/share/16VD87buB7/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com/Dominant_3258?t=MlBZaGPBQJ64H5NvtYDOMA&s=09" aria-label="X" target="_blank" rel="noopener noreferrer">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://www.instagram.com/zeeshan_ali_3258?igsh=MTV2enZnOXBkbm5scQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 2 -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie Chen">
+                </div>
+                <h3 class="member-name">Mirza Farhan</h3>
+                <p class="member-role">Head of Recipe Development</p>
+                <p class="member-bio">A fusion cuisine expert, Farhan combines flavors from around the world to create unforgettable dining experiences.</p>
+               <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 3 -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Müller">
+                </div>
+                <h3 class="member-name">Hamza Rasheed</h3>
+                <p class="member-role">Food Scientist</p>
+                <p class="member-bio">Hamza's background in chemistry helps us understand the molecular interactions that make our recipes possible.</p>
+                <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 4 -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Patel">
+                </div>
+                <h3 class="member-name">Usman Maqbool</h3>
+                <p class="member-role">Pastry Chef</p>
+                <p class="member-bio">Usman's desserts are works of art that engage all the senses while maintaining perfect balance and flavor.</p>
+               <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 5 (New) -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="James Wilson">
+                </div>
+                <h3 class="member-name">Nadeem Iqbal</h3>
+                <p class="member-role">Mixology Expert</p>
+                <p class="member-bio">Nadeem creates innovative cocktail pairings that perfectly complement our molecular gastronomy dishes.</p>
+                <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 6 (New) -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Elena Rodriguez">
+                </div>
+                <h3 class="member-name">Mahmood Butt</h3>
+                <p class="member-role">Sustainability Director</p>
+                <p class="member-bio">Mahmood ensures all our recipes and techniques are environmentally sustainable and ethically sourced.</p>
+                <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 7 (New) -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/men/82.jpg" alt="Thomas Kim">
+                </div>
+                <h3 class="member-name">Hayyan Gill</h3>
+                <p class="member-role">Creative Director</p>
+                <p class="member-bio">Hayyan designs the stunning visual presentations that make our dishes unforgettable experiences.</p>
+                <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+   
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="section-title">Join Our Culinary Journey</h2>
+            <p class="section-subtitle textn-subtitle">Subscribe to receive weekly recipe renovations, exclusive content, and culinary inspiration</p>
+            
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle contact-subtitle">We'd love to hear from you! Reach out with questions, collaborations, or just to say hello.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Have questions about our recipes or want to collaborate on a project? Fill out the form or contact us directly.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>Khwaja Fareed University Of Engineering And Information Technology , RYK</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Number</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Address</h4>
+                                <p>hello@foodrenovation.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="https://www.facebook.com/share/16VD87buB7/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+                        <a href="https://x.com/Dominant_3258?t=MlBZaGPBQJ64H5NvtYDOMA&s=09" aria-label="X" target="_blank" rel="noopener noreferrer">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+                        <a href="https://www.instagram.com/zeeshan_ali_3258?igsh=MTV2enZnOXBkbm5scQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+             
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recipe Modal -->
+    <div class="modal-overlay" id="recipe-modal">
+        <div class="recipe-modal">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="modal-content" id="modal-content">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle notification-icon"></i>
+    </div>
+    
+    <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    
+    <!-- Footer -->
+   <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column footer-about">
+                <h3>About Us</h3>
+                <p>Recipe Finder helps home cooks discover delicious meals they can make with ingredients they already have. Our mission is to reduce food waste and make cooking more accessible by eliminating the need for special grocery trips.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/16VD87buB7/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/Dominant_3258?t=MlBZaGPBQJ64H5NvtYDOMA&s=09" aria-label="X" target="_blank" rel="noopener noreferrer">
+                        <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/zeeshan_ali_3258?igsh=MTV2enZnOXBkbm5scQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home" class="smooth-scroll">Home</a></li>
+                    <li><a href="#featured" class="smooth-scroll">Recipes</a></li>
+                    <li><a href="#ingredients" class="smooth-scroll">Ingredients</a></li>
+                    <li><a href="#about" class="smooth-scroll">About</a></li>
+                    <li><a href="#contact" class="smooth-scroll">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-categories">
+                <h3>Recipe Categories</h3>
+                <ul>
+                    <li><a href="#featured" class="category-filter" data-category="quick">Quick Meals</a></li>
+                    <li><a href="#featured" class="category-filter" data-category="vegetarian">Vegetarian</a></li>
+                    <li><a href="#featured" class="category-filter" data-category="comfort">Comfort Food</a></li>
+                    <li><a href="#featured" class="category-filter" data-category="dessert">Desserts</a></li>
+                    <li><a href="#featured" class="category-filter" data-category="healthy">Healthy Options</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Khwaja Fareed University of Engineering and Information Technology, RYK</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@recipefinder.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Food Renovation. All rights reserved. | Designed By Group No.4 (SWEN-2B)</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+<!-- Add these before your existing script tag -->
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics-compat.js"></script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HWVVYV1BN4"></script>
+
+
+
+
+
+
+    <script>
+        // Recipe Data - Simulating a database
+       const recipes = [
+    
+{
+        id: 1,
+        title: "Chicken Karahi",
+        category: ["meat", "comfort"],
+        time: "45 mins",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/666553456/photo/chicken-tikka-jalfrezi-indian-food.jpg?b=1&s=612x612&w=0&k=20&c=KH-4DdBoo3a-E20mkHOkvjB88nkg0WqLUoE5hjp8rwU=",
+        description: "Classic Pakistani chicken curry cooked in a wok with tomatoes, ginger and aromatic spices.",
+        ingredients: ["chicken", "tomatoes", "ginger garlic paste", "green chilies", "cumin", "coriander", "red chili powder", "turmeric", "oil"],
+        requiredIngredients: ["chicken", "tomatoes", "ginger garlic paste"],
+        instructions: [
+            "Heat oil in karahi, add chicken and brown",
+            "Add ginger-garlic paste and sauté",
+            "Add spices and tomatoes, cook until oil separates",
+            "Add green chilies and simmer for 10 minutes",
+            "Garnish with fresh coriander and serve"
+        ],
+        badge: "Pakistani Classic"
+    },
+    {
+        id: 2,
+        title: "Daal Chawal",
+        category: ["vegetarian", "comfort"],
+        time: "40 mins",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1421211683/photo/healthy-nutritious-indian-comfort-food-dal-chawal-thali-or-dal-rice-served-in-two-way-ceramic.jpg?b=1&s=612x612&w=0&k=20&c=-P91CVaqQc0V6n2syZyudkMBfK43VWJJ0SW6e-UqnyE=",
+        description: "Hearty lentils served with steamed basmati rice - a Pakistani staple.",
+        ingredients: ["lentils", "basmati rice", "onions", "garlic", "cumin", "turmeric", "red chili powder", "oil"],
+        requiredIngredients: ["lentils", "basmati rice"],
+        instructions: [
+            "Cook lentils with turmeric until soft",
+            "Temper with fried onions, garlic and spices",
+            "Cook rice separately",
+            "Serve lentils over steamed rice"
+        ],
+        badge: "Comfort Food"
+    },
+    {
+        id: 3,
+        title: "Aloo Gosht",
+        category: ["meat", "comfort"],
+        time: "1 hour",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1454432976/photo/aloo-gosht-or-meat-potatoes-served-in-plate-isolated-on-table-top-view-of-indian-and.jpg?s=612x612&w=0&k=20&c=SRd9CZnniP8hDmS7FNHxtKUhz6o2DIioIus3mqZYmGk=",
+        description: "Tender meat and potato curry in rich gravy.",
+        ingredients: ["beef", "potatoes", "onions", "tomatoes", "ginger garlic paste", "garam masala", "oil"],
+        requiredIngredients: ["beef", "potatoes"],
+        instructions: [
+            "Brown meat with onions",
+            "Add spices and tomatoes",
+            "Add potatoes and simmer until tender",
+            "Finish with garam masala"
+        ],
+        badge: "Family Favorite"
+    },
+    {
+        id: 4,
+        title: "Chana Masala",
+        category: ["vegetarian"],
+        time: "35 mins",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1182758935/photo/homemade-indian-chickpea-chana-masala.jpg?b=1&s=612x612&w=0&k=20&c=Vx-TkCIYhKrrv6RYkLVkZbLRWzxcM7Rwo2-JCrPozc4=",
+        description: "Spicy chickpea curry with authentic flavors.",
+        ingredients: ["chickpeas", "tomatoes", "onions", "ginger garlic paste", "cumin", "coriander", "turmeric", "garam masala"],
+        requiredIngredients: ["chickpeas", "tomatoes"],
+        instructions: [
+            "Sauté onions, ginger-garlic paste",
+            "Add spices and tomatoes",
+            "Add chickpeas and simmer",
+            "Finish with garam masala"
+        ],
+        badge: "Vegetarian"
+    },
+    {
+        id: 5,
+        title: "Biryani",
+        category: ["meat", "comfort"],
+        time: "1.5 hours",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1345624336/photo/chicken-biriyani.jpg?b=1&s=612x612&w=0&k=20&c=2CBPkgQI2PiNySSNi1tvwVSYFqOBgfgrgDPCyelIVrk=",
+        description: "Fragrant layered rice dish with meat and spices.",
+        ingredients: ["basmati rice", "chicken", "yogurt", "onions", "ginger garlic paste", "cardamom", "cumin", "garam masala"],
+        requiredIngredients: ["basmati rice", "chicken"],
+        instructions: [
+            "Marinate chicken in yogurt and spices",
+            "Parboil rice with whole spices",
+            "Layer rice and chicken",
+            "Dum cook on low heat"
+        ],
+        badge: "Festive Dish"
+    },
+    {
+        id: 6,
+        title: "Haleem",
+        category: ["meat", "comfort" , "healthy"],
+        time: "4 hours",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1454433038/photo/chicken-haleem-with-fried-onion-and-lemon-served-in-plate-isolated-on-table-top-view-of.jpg?b=1&s=612x612&w=0&k=20&c=LTY8BFuwDblEqVtlszYLx64zVuliSOCq-N4KimPXAQs=",
+        description: "Slow-cooked wheat and meat porridge with spices.",
+        ingredients: ["beef", "wheat", "lentils", "ginger garlic paste", "cumin", "garam masala", "oil"],
+        requiredIngredients: ["beef", "wheat", "lentils"],
+        instructions: [
+            "Cook meat until tender",
+            "Add wheat and lentils",
+            "Slow cook until creamy consistency",
+            "Temper with spices and serve"
+        ],
+        badge: "Ramadan Special"
+    },
+    {
+        id: 7,
+        title: "Saag",
+        category: ["vegetarian" ,"healthy"],
+        time: "1 hour",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1501103123/photo/saag-with-white-butter-in-bowl-at-dinner-table.jpg?s=612x612&w=0&k=20&c=f8yBd_mWD-ZFCiG-zG5oYx_HYyk7__3qvtIzK_lgFn4=",
+        description: "Mustard greens cooked with spices.",
+        ingredients: ["spinach", "mustard greens", "onions", "ginger garlic paste", "cumin", "cornmeal", "oil"],
+        requiredIngredients: ["spinach", "mustard greens"],
+        instructions: [
+            "Boil greens until tender",
+            "Sauté onions and spices",
+            "Combine and simmer",
+            "Add cornmeal for thickness"
+        ],
+        badge: "Punjabi Specialty"
+    },
+    {
+        id: 8,
+        title: "Nihari",
+        category: ["meat", "comfort"],
+        time: "6 hours",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1345852382/photo/beef-nihari-pakistani-curry-cuisine.jpg?s=612x612&w=0&k=20&c=ng9gOc9TZ31Ekc1sO_-_OMqUnaQUbZZ3PJDKO4U7p_0=",
+        description: "Slow-cooked beef shank curry with special spices.",
+        ingredients: ["beef shank", "ginger garlic paste", "nihar masala", "wheat flour", "oil"],
+        requiredIngredients: ["beef shank"],
+        instructions: [
+            "Slow cook beef overnight",
+            "Thicken with wheat flour",
+            "Temper with nihar masala",
+            "Garnish with ginger and lemon"
+        ],
+        badge: "Slow Cooked"
+    },
+    {
+        id: 9,
+        title: "Daal Mash",
+        category: ["vegetarian" ,"healthy"],
+        time: "1 hour",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1681084251/photo/lentil-soup-with-vegetables-at-white-stone-table.jpg?s=612x612&w=0&k=20&c=9Ep8m67-o8PspJvb6hdghlrzYvHY3C9jDzggzEeOW_E=",
+        description: "Creamy urad dal cooked with garlic and spices.",
+        ingredients: ["urad dal", "garlic", "cumin", "red chili powder", "turmeric", "oil"],
+        requiredIngredients: ["urad dal"],
+        instructions: [
+            "Soak dal overnight",
+            "Cook with garlic and spices",
+            "Temper with cumin and chili",
+            "Serve with naan"
+        ],
+        badge: "Comfort Food"
+    },
+    {
+        id: 10,
+        title: "Kheer",
+        category: ["dessert"],
+        time: "1 hour",
+        type: "Dessert",
+        image: "https://media.istockphoto.com/id/1453999382/photo/jhangore-ki-kheer.jpg?s=612x612&w=0&k=20&c=AxGYedan3PMDvHbvilfvpJsvJ5UDwC7n44SQvxXhzvg=",
+        description: "Creamy rice pudding with cardamom and nuts.",
+        ingredients: ["basmati rice", "milk", "sugar", "cardamom", "almonds", "pistachios"],
+        requiredIngredients: ["basmati rice", "milk"],
+        instructions: [
+            "Cook rice in milk",
+            "Add sugar and cardamom",
+            "Simmer until thickened",
+            "Garnish with nuts"
+        ],
+        badge: "Festive Dessert"
+    },
+    {
+        id: 11,
+        title: "Aloo Paratha",
+        category: ["vegetarian", "quick"],
+        time: "30 mins",
+        type: "Breakfast",
+        image: "https://media.istockphoto.com/id/1279134709/photo/image-of-metal-tray-with-aloo-paratha-pile-topped-with-red-onion-rings-and-sprinkle-of.jpg?s=612x612&w=0&k=20&c=GRayLaSHVOuWZn63lV02NvLZ75y8ECE7Zw2-0Dk5H5U=",
+        description: "Stuffed flatbread with spiced potato filling.",
+        ingredients: ["flour", "potatoes", "green chilies", "cumin", "oil"],
+        requiredIngredients: ["flour", "potatoes"],
+        instructions: [
+            "Make dough with flour and water",
+            "Prepare spiced potato filling",
+            "Stuff and roll parathas",
+            "Cook on griddle with oil"
+        ],
+        badge: "Breakfast"
+    },
+    {
+        id: 12,
+        title: "Chapli Kabab",
+        category: ["meat"],
+        time: "40 mins",
+        type: "Appetizer",
+        image: "https://media.istockphoto.com/id/1444755702/photo/beef-chapli-kebabs.jpg?s=612x612&w=0&k=20&c=P5upYlVGYgMvvcgt7rX4WHA_vIp5jAgpzxtCiVC966k=",
+        description: "Spiced ground beef patties from KPK.",
+        ingredients: ["ground beef", "tomatoes", "onions", "ginger garlic paste", "cumin", "coriander", "egg"],
+        requiredIngredients: ["ground beef"],
+        instructions: [
+            "Mix all ingredients",
+            "Form into patties",
+            "Shallow fry until crisp",
+            "Serve with naan"
+        ],
+        badge: "Street Food"
+    },
+    {
+        id: 13,
+        title: "Dahi Bhalla",
+        category: ["vegetarian"],
+        time: "1 hour",
+        type: "Appetizer",
+        image: "https://media.istockphoto.com/id/1039670828/photo/dahi-bhalla-or-dahi-vada.jpg?b=1&s=612x612&w=0&k=20&c=lghBFpW9it2vdb3r1gQLpHripJLOO2EZ2LWVCBwyoxA=",
+        description: "Lentil dumplings in spiced yogurt.",
+        ingredients: ["lentils", "yogurt", "tamarind chutney", "cumin", "red chili powder"],
+        requiredIngredients: ["lentils", "yogurt"],
+        instructions: [
+            "Soak and grind lentils",
+            "Fry into vadas",
+            "Soak in water then squeeze",
+            "Top with yogurt and chutneys"
+        ],
+        badge: "Iftari Special"
+    },
+    {
+        id: 14,
+        title: "Paya",
+        category: ["meat"],
+        time: "6 hours",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/879625018/photo/mutton-curry-or-or-masala-gosht-or-indian-lamb-rogan-josh.jpg?s=612x612&w=0&k=20&c=R5lcUk-QZZo9ctxD05cEKAW2b2UmPIP1GGNXelJpohM=",
+        description: "Slow-cooked trotters in rich gravy.",
+        ingredients: ["goat trotters", "ginger garlic paste", "garam masala", "wheat flour", "oil"],
+        requiredIngredients: ["goat trotters"],
+        instructions: [
+            "Clean and boil trotters",
+            "Make rich gravy with spices",
+            "Slow cook until tender",
+            "Thicken with wheat flour"
+        ],
+        badge: "Winter Special"
+    },
+    {
+        id: 15,
+        title: "Gajar ka Halwa",
+        category: ["dessert" ,"healthy"],
+        time: "1.5 hours",
+        type: "Dessert",
+        image: "https://media.istockphoto.com/id/1208754471/photo/gajar-ka-halwa.jpg?s=612x612&w=0&k=20&c=lfYKARLXHS2CbHtuU25uDnQQ1YMg83T_qS_eFB8wNRg=",
+        description: "Carrot pudding with milk and nuts.",
+        ingredients: ["carrots", "milk", "sugar", "cardamom", "almonds", "pistachios", "ghee"],
+        requiredIngredients: ["carrots", "milk"],
+        instructions: [
+            "Shred carrots",
+            "Cook in milk until thick",
+            "Add sugar and cardamom",
+            "Garnish with nuts"
+        ],
+        badge: "Winter Dessert"
+    },
+    {
+        id: 16,
+        title: "Chicken Tikka",
+        category: ["meat"],
+        time: "1 hour",
+        type: "Appetizer",
+        image: "https://media.istockphoto.com/id/1081828956/photo/spicy-barbecued-chicken-tikka-boti-on-skewers-served-in-a-plate-with-green-chutney-selective.jpg?s=612x612&w=0&k=20&c=oNYrfh_7MfvueO8Taw38EWJ4MuuHoYyLCJhsidJwyII=",
+        description: "Marinated chicken grilled to perfection.",
+        ingredients: ["chicken", "yogurt", "ginger garlic paste", "cumin", "coriander", "red chili powder", "lemon juice"],
+        requiredIngredients: ["chicken", "yogurt"],
+        instructions: [
+            "Marinate chicken in spiced yogurt",
+            "Skewer and grill",
+            "Baste with butter",
+            "Serve with mint chutney"
+        ],
+        badge: "BBQ Favorite"
+    },
+    {
+        id: 17,
+        title: "Seviyan",
+        category: ["dessert", "healthy" ],
+        time: "30 mins",
+        type: "Dessert",
+        image: "https://media.istockphoto.com/id/1226470289/photo/sheer-khurma-seviyan-consumed-especially-on-eid-or-any-other-festival-in-india-asia-served.jpg?s=612x612&w=0&k=20&c=cV63-xIZFd5pXgnkFDFvWzOmGGB70tf5pM4e22tcQ5A=",
+        description: "Vermicelli pudding with milk and nuts.",
+        ingredients: ["vermicelli", "milk", "sugar", "cardamom", "almonds", "pistachios", "oil"],
+        requiredIngredients: ["vermicelli", "milk"],
+        instructions: [
+            "Roast vermicelli in ghee",
+            "Add milk and cook",
+            "Sweeten with sugar",
+            "Garnish with nuts"
+        ],
+        badge: "Eid Special"
+    },
+    {
+        id: 18,
+        title: "Aloo Keema",
+        category: ["meat"],
+        time: "45 mins",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1454432960/photo/aloo-qeema-or-potato-keema-served-in-plate-isolated-on-table-top-view-of-indian-and-pakistani.jpg?s=612x612&w=0&k=20&c=3GiK9xYrmbm2RfLAcm7mvdXAp0ZwqzdsBprDr9pzJ80=",
+        description: "Ground meat with potatoes in gravy.",
+        ingredients: ["ground beef", "potatoes", "onions", "tomatoes", "ginger garlic paste", "garam masala"],
+        requiredIngredients: ["ground beef", "potatoes"],
+        instructions: [
+            "Brown meat with onions",
+            "Add spices and tomatoes",
+            "Add potatoes and simmer",
+            "Finish with garam masala"
+        ],
+        badge: "Weeknight Dinner"
+    },
+    {
+        id: 19,
+        title: "Pakora",
+        category: ["vegetarian", "quick"],
+        time: "30 mins",
+        type: "Appetizer",
+        image: "https://media.istockphoto.com/id/1254198647/photo/palak-pakoras-fried-hot-and-tasty.jpg?s=612x612&w=0&k=20&c=K4LK0v0zazVqH5DMeb_0Z7BUFj7ThhlRhLnlQBqZUds=",
+        description: "Spiced vegetable fritters.",
+        ingredients: ["chickpea flour", "potatoes", "onions", "spinach", "green chilies", "cumin", "oil"],
+        requiredIngredients: ["chickpea flour"],
+        instructions: [
+            "Slice vegetables",
+            "Make spiced batter",
+            "Deep fry until golden",
+            "Serve with chutney"
+        ],
+        badge: "Monsoon Favorite"
+    },
+    {
+        id: 20,
+        title: "Shahi Tukray",
+        category: ["dessert" , "healthy"],
+        time: "1 hour",
+        type: "Dessert",
+        image: "https://media.istockphoto.com/id/1317843481/photo/shahi-tukda-or-double-ka-meetha-is-a-bread-pudding-in-ghee-garnish-with-condensed-milk-nuts.jpg?s=612x612&w=0&k=20&c=qsB-4FjPdgSwXrjGS3BOLLkmt8g3JKC9A13t1xWDmDE=",
+        description: "Bread pudding in rich milk sauce.",
+        ingredients: ["bread", "milk", "sugar", "cardamom", "almonds", "pistachios", "saffron"],
+        requiredIngredients: ["bread", "milk"],
+        instructions: [
+            "Fry bread slices",
+            "Prepare thickened milk",
+            "Layer bread with milk",
+            "Garnish with nuts"
+        ],
+        badge: "Royal Dessert"
+    },
+        
+    {
+        id: 42,
+        title: "Baingan Bharta",
+        category: ["vegetarian"],
+        time: "40 mins",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/654892314/photo/baingan-bharta.jpg?s=612x612&w=0&k=20&c=8aLq9g4qQfwYKz3y9iCVjMj0vRYmOpbpf5gdWr4Gde8=",
+        description: "Smoky roasted eggplant mashed with spices.",
+        ingredients: ["eggplant", "onions", "tomatoes", "ginger garlic paste", "green chilies", "cumin", "coriander", "oil"],
+        requiredIngredients: ["eggplant", "tomatoes"],
+        instructions: [
+            "Roast eggplant until charred",
+            "Sauté onions, ginger-garlic and spices",
+            "Add tomatoes and mashed eggplant",
+            "Cook until flavors blend"
+        ],
+        badge: "Vegetarian"
+    },
+    {
+        id: 43,
+        title: "Murgh Cholay",
+        category: ["meat"],
+        time: "1 hour",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1156640481/photo/lahori-murgh-cholay.jpg?s=612x612&w=0&k=20&c=D7irHS1LnjIJ1QPkcgKk0j5RNiEo7gh9KbOZGsmN0LY=",
+        description: "Chicken with chickpeas in spicy gravy.",
+        ingredients: ["chicken", "chickpeas", "onions", "tomatoes", "ginger garlic paste", "garam masala", "turmeric", "oil"],
+        requiredIngredients: ["chicken", "chickpeas"],
+        instructions: [
+            "Cook chickpeas until tender",
+            "Brown chicken with onions and spices",
+            "Add tomatoes and cooked chickpeas",
+            "Simmer for 20 minutes"
+        ],
+        badge: "Protein Rich"
+    },
+    {
+        id: 44,
+        title: "Palak Gosht",
+        category: ["meat"],
+        time: "1 hour",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1201133663/photo/indian-dish-spinach-lamb-palak-with-chappati-flat-bread.jpg?s=612x612&w=0&k=20&c=_R18B-mztzTIm5nlSQnOIJYEuHeeI4aVRmeBBXlReiE=",
+        description: "Meat cooked with spinach in flavorful gravy.",
+        ingredients: ["beef", "spinach", "onions", "ginger garlic paste", "cumin", "garam masala", "yogurt"],
+        requiredIngredients: ["beef", "spinach"],
+        instructions: [
+            "Brown meat with onions and spices",
+            "Add chopped spinach",
+            "Cook until meat is tender",
+            "Finish with garam masala"
+        ],
+        badge: "Iron Rich"
+    },
+    
+    {
+        id: 46,
+        title: "Shami Kabab",
+        category: ["meat"],
+        time: "1.5 hours",
+        type: "Appetizer",
+        image: "https://media.istockphoto.com/id/1456235385/photo/vegetable-pakora-or-shami-kabab-tikki-with-chutney-sauce-and-dip-served-in-dish-isolated-on.jpg?s=612x612&w=0&k=20&c=-da9LBr1tWd_m7snpL2oUZ3L6zXmYRjme5IbA1mWJ9E=",
+        description: "Flattened patties of spiced ground meat.",
+        ingredients: ["ground beef", "chana dal", "ginger garlic paste", "green chilies", "cumin", "coriander", "egg"],
+        requiredIngredients: ["ground beef", "chana dal"],
+        instructions: [
+            "Cook meat with lentils and spices",
+            "Grind into fine mixture",
+            "Shape into patties and shallow fry",
+            "Serve with mint chutney"
+        ],
+        badge: "Party Favorite"
+    },
+   
+    {
+        id: 48,
+        title: "Beef Pulao",
+        category: ["meat"],
+        time: "1.5 hours",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1422594440/photo/ouzi-lamb-or-lamb-pulao-with-nuts-served-in-a-dish-side-view-isolared-on-wooden-table.jpg?s=612x612&w=0&k=20&c=KHB-3mTKdC3hh1WdjUYgYbLYP4VfaASlhMYI5IcgWbE=",
+        description: "Fragrant rice cooked with beef and whole spices.",
+        ingredients: ["beef", "basmati rice", "onions", "ginger garlic paste", "whole spices", "cumin", "oil"],
+        requiredIngredients: ["beef", "basmati rice"],
+        instructions: [
+            "Brown meat with onions and spices",
+            "Add rice and water",
+            "Cook on dum (steam)",
+            "Garnish with fried onions"
+        ],
+        badge: "Special Occasion"
+    },
+    
+    {
+        id: 50,
+        title: "Chicken Reshmi Kabab",
+        category: ["meat" ,"healthy"],
+        time: "1 hour",
+        type: "Appetizer",
+        image: "https://media.istockphoto.com/id/2164312347/photo/chicken-reshmi-kabab-or-chicken-malai-kabab-delicious-mughlai-cuisine-serve-with-mint-chutney.jpg?s=612x612&w=0&k=20&c=DKRCtApnp7rw8MF9-_0KavhT1nutjX35iBHdmg2EdbA=",
+        description: "Creamy chicken kebabs with cashew paste.",
+        ingredients: ["chicken", "cashew paste", "cream", "ginger garlic paste", "green chilies", "cumin", "cardamom"],
+        requiredIngredients: ["chicken", "cashew paste"],
+        instructions: [
+            "Marinate chicken in spiced cream mixture",
+            "Skewer and grill",
+            "Baste with butter",
+            "Serve with mint yogurt"
+        ],
+        badge: "Mughlai"
+    },
+   
+    {
+        id: 52,
+        title: "Chicken Malai Boti",
+        category: ["meat"],
+        time: "1 hour",
+        type: "Appetizer",
+        image: "https://media.istockphoto.com/id/2163462840/photo/chicken-malai-boti-tikka-with-cucumber-and-onion-salad-served-in-dish-isolated-dark.jpg?s=612x612&w=0&k=20&c=jsrYNghOA8R7zf3VdosrD1cRTDUtRMoSqDbebvhEBRo=",
+        description: "Creamy grilled chicken cubes.",
+        ingredients: ["chicken", "cream", "cheese", "ginger garlic paste", "green chilies", "cardamom", "oil"],
+        requiredIngredients: ["chicken", "cream"],
+        instructions: [
+            "Marinate chicken in creamy mixture",
+            "Skewer and grill",
+            "Baste with butter",
+            "Serve with naan"
+        ],
+        badge: "BBQ"
+    },
+    
+    {
+        id: 56,
+        title: "Fish Curry",
+        category: ["meat"],
+        time: "40 mins",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1184625171/photo/fish-curry.jpg?s=612x612&w=0&k=20&c=0HzU7r8HaUpmEhi4TBN9keqJy7hFyRhbBGLonxaGqN0=",
+        description: "Fish in spicy tomato-based gravy.",
+        ingredients: ["fish", "tomatoes", "onions", "ginger garlic paste", "turmeric", "coriander", "cumin", "oil"],
+        requiredIngredients: ["fish", "tomatoes"],
+        instructions: [
+            "Marinate fish with turmeric",
+            "Make gravy with onions and tomatoes",
+            "Gently add fish pieces",
+            "Simmer for 10 minutes"
+        ],
+        badge: "Coastal"
+    },
+    {
+        id: 57,
+        title: "Chana Chaat",
+        category: ["vegetarian", "quick"],
+        time: "20 mins",
+        type: "Appetizer",
+        image: "https://media.istockphoto.com/id/669495548/photo/spicy-chick-peas-curry-or-chola-masala-or-chana-masala-or-chole-bhature-or-choley-garnished.jpg?s=612x612&w=0&k=20&c=7-fra_6x92HRczz_ASSkADXc8KrhExuT-j4-LTB5jj4=",
+        description: "Spicy chickpea salad with tangy chutneys.",
+        ingredients: ["chickpeas", "potatoes", "onions", "tomatoes", "tamarind chutney", "cumin", "chaat masala"],
+        requiredIngredients: ["chickpeas"],
+        instructions: [
+            "Boil chickpeas and potatoes",
+            "Chop vegetables",
+            "Mix with spices and chutneys",
+            "Garnish with sev"
+        ],
+        badge: "Street Food"
+    },
+    {
+        id: 58,
+        title: "Mutton Korma",
+        category: ["meat"],
+        time: "2 hours",
+        type: "Main Course",
+        image: "https://media.istockphoto.com/id/1177710775/photo/indian-traditional-food-lamb-rogan-josh-close-up-in-a-pan-horizontal.jpg?s=612x612&w=0&k=20&c=dBGjXY1TX1p6dkTzZyBw_lUaosxXE1a00G3btRyvS_4=",
+        description: "Mild creamy mutton curry with nuts.",
+        ingredients: ["mutton", "yogurt", "cashew paste", "onions", "ginger garlic paste", "cardamom", "cream"],
+        requiredIngredients: ["mutton", "yogurt"],
+        instructions: [
+            "Brown mutton with onions",
+            "Add yogurt and cashew paste",
+            "Slow cook until tender",
+            "Finish with cream"
+        ],
+        badge: "Mughlai"
+    },
+    
+    {
+        id: 60,
+        title: "Rabri",
+        category: ["dessert"],
+        time: "2 hours",
+        type: "Dessert",
+        image: "https://media.istockphoto.com/id/1318179086/photo/rabdi-or-rabri-served-in-clay-pot-diwali-desserts.jpg?s=612x612&w=0&k=20&c=IJgAmvtIJBmVRPXxFqrCELvoeZKAXCh3BVmYE0FdYjU=",
+        description: "Reduced milk dessert with layers of cream.",
+        ingredients: ["milk", "sugar", "cardamom", "almonds", "pistachios", "saffron"],
+        requiredIngredients: ["milk"],
+        instructions: [
+            "Simmer milk until reduced by half",
+            "Add sugar and cardamom",
+            "Layer cream as it forms",
+            "Chill and garnish with nuts"
+        ],
+        badge: "Traditional"
+    }
+        ];
+
+        // DOM Elements
+// Add this at the top of your script, after the recipes array is defined
+const allIngredients = [...new Set(recipes.flatMap(recipe => recipe.ingredients))];
+
+ const recipesContainer = document.getElementById('recipes-container');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        const searchBox = document.querySelector('.search-box');
+        const searchSuggestions = document.getElementById('search-suggestions');
+        const recipeModal = document.getElementById('recipe-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalContent = document.getElementById('modal-content');
+        const newsletterForm = document.getElementById('newsletter-form');
+        const notification = document.getElementById('notification');
+        const categoryCards = document.querySelectorAll('.category-card');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-links');
+        const contactForm = document.getElementById('contactForm');
+        const backToTop = document.getElementById('back-to-top');
+        const loadMoreBtn = document.getElementById('load-more');
+        const ingredientTags = document.querySelectorAll('.ingredient-tag');
+        const selectedTagsContainer = document.getElementById('selected-tags');
+        const findRecipesBtn = document.getElementById('find-recipes-btn');
+        const clearIngredientsBtn = document.getElementById('clear-ingredients');
+        const emptyMessage = document.querySelector('.empty-message');
+       
+let currentSearchTerm = '';
+let selectedSuggestionIndex = -1;
+
+
+        // Pagination variables
+        const recipesPerPage = 6;
+        let currentPage = 1;
+        let currentRecipes = [...recipes];
+        let selectedIngredients = [];
+
+        // Display all recipes initially
+        displayRecipes(recipes);
+
+        // Mobile menu toggle
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update active link
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+
+        // Filter recipes by category
+       filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.dataset.category;
+                if (category === 'all') {
+                    displayRecipes(recipes);
+                } else {
+                    const filteredRecipes = recipes.filter(recipe => 
+                        recipe.category.includes(category)
+                    );
+                    displayRecipes(filteredRecipes);
+                }
+            });
+        });
+// Category filter functionality
+ document.querySelectorAll('.category-filter').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const category = this.dataset.category;
+                
+                // Filter recipes
+                const filteredRecipes = category === 'all' 
+                    ? recipes 
+                    : recipes.filter(recipe => recipe.category.includes(category));
+                
+                // Update display
+                currentPage = 1;
+                currentRecipes = filteredRecipes;
+                displayRecipes(filteredRecipes);
+                
+                // Update active filter button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.category === category) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Scroll to recipes section
+                document.getElementById('featured').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+categoryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const category = card.dataset.category;
+                // Update filter buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.category === category) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                const filteredRecipes = recipes.filter(recipe => 
+                    recipe.category.includes(category)
+                );
+                displayRecipes(filteredRecipes);
+                
+                // Scroll to recipes section
+                document.querySelector('.featured').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+ // Ingredient selection functionality
+        ingredientTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                const ingredient = tag.dataset.ingredient;
+                
+                if (!selectedIngredients.includes(ingredient)) {
+                    selectedIngredients.push(ingredient);
+                    updateSelectedIngredients();
+                }
+            });
+        });
+
+        // Update selected ingredients display
+        function updateSelectedIngredients() {
+            selectedTagsContainer.innerHTML = '';
+            
+            if (selectedIngredients.length === 0) {
+                emptyMessage.style.display = 'inline';
+                findRecipesBtn.disabled = true;
+                return;
+            }
+            
+            emptyMessage.style.display = 'none';
+            findRecipesBtn.disabled = false;
+            
+            selectedIngredients.forEach(ingredient => {
+                const tag = document.createElement('span');
+                tag.className = 'selected-tag';
+                tag.innerHTML = `${ingredient} <i class="fas fa-times remove-tag" data-ingredient="${ingredient}"></i>`;
+                selectedTagsContainer.appendChild(tag);
+            });
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-tag').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const ingredientToRemove = btn.dataset.ingredient;
+                    selectedIngredients = selectedIngredients.filter(
+                        ing => ing !== ingredientToRemove
+                    );
+                    updateSelectedIngredients();
+                });
+            });
+        }
+
+        // Clear all ingredients
+        clearIngredientsBtn.addEventListener('click', () => {
+            selectedIngredients = [];
+            updateSelectedIngredients();
+        });
+
+        // Find recipes with selected ingredients
+        findRecipesBtn.addEventListener('click', () => {
+            if (selectedIngredients.length === 0) return;
+            
+            const filteredRecipes = recipes.filter(recipe => {
+                return selectedIngredients.every(ingredient => 
+                    recipe.ingredients.includes(ingredient)
+                );
+            });
+            
+            displayRecipes(filteredRecipes);
+            
+            // Scroll to recipes section
+            document.getElementById('featured').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+
+
+ searchInput.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase().trim();
+    
+    if (searchTerm.length > 0) {
+        // First find matching ingredients
+        const ingredientMatches = allIngredients.filter(ingredient => 
+            ingredient.toLowerCase().includes(searchTerm)
+        ).slice(0, 3); // Show max 3 ingredient matches
+        
+        // Then find matching recipes (limit to 2 if we have ingredient matches)
+        const recipeMatches = recipes.filter(recipe => 
+            recipe.title.toLowerCase().includes(searchTerm) ||
+            recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
+        ).slice(0, ingredientMatches.length > 0 ? 2 : 5); // Show fewer recipes if we have ingredient matches
+        
+        showSuggestions(ingredientMatches, recipeMatches);
+    } else {
+        hideSuggestions();
+    }
+});
+
+        searchBtn.addEventListener('click', () => {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            searchRecipes(searchTerm);
+        });
+
+
+        function searchRecipes(searchTerm) {
+            hideSuggestions();
+            
+            if (searchTerm === '') {
+                displayRecipes(recipes);
+                return;
+            }
+            
+            const filteredRecipes = recipes.filter(recipe => 
+                recipe.title.toLowerCase().includes(searchTerm) ||
+                recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
+            );
+            
+            displayRecipes(filteredRecipes);
+            
+            // Reset filter buttons
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.category === 'all') {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+
+
+ // Display recipes with pagination
+function displayRecipes(recipesToDisplay, resetPagination = true) {
+            if (resetPagination) {
+                currentPage = 1;
+                currentRecipes = [...recipesToDisplay];
+            }
+            
+            recipesContainer.innerHTML = '';
+            
+            if (currentRecipes.length === 0) {
+                recipesContainer.innerHTML = '<p class="no-results">No recipes found. Try different ingredients or search terms.</p>';
+                loadMoreBtn.style.display = 'none';
+                return;
+            }
+            
+            const endIndex = Math.min(currentPage * recipesPerPage, currentRecipes.length);
+            const paginatedRecipes = currentRecipes.slice(0, endIndex);
+            
+            paginatedRecipes.forEach(recipe => {
+                const recipeCard = document.createElement('div');
+                recipeCard.className = 'recipe-card';
+                recipeCard.innerHTML = `
+                    <div class="recipe-img">
+                        <img src="${recipe.image}" alt="${recipe.title}">
+                        ${recipe.badge ? `<div class="recipe-badge">${recipe.badge}</div>` : ''}
+                    </div>
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">${recipe.title}</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                            <span><i class="fas fa-utensils"></i> ${recipe.type}</span>
+                        </div>
+                        <p class="recipe-desc">${recipe.description}</p>
+                        <button class="btn view-recipe" data-id="${recipe.id}">View Recipe</button>
+                    </div>
+                `;
+                recipesContainer.appendChild(recipeCard);
+            });
+            
+            // Show/hide load more button
+            if (endIndex >= currentRecipes.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+            
+            // Add event listeners to view recipe buttons
+            document.querySelectorAll('.view-recipe').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const recipeId = parseInt(e.target.dataset.id);
+                    showRecipeModal(recipeId);
+                });
+            });
+        }
+
+        // Load more recipes when button is clicked
+        loadMoreBtn.addEventListener('click', () => {
+            currentPage++;
+            displayRecipes(currentRecipes, false);
+        });
+
+
+        // Show recipe modal with details
+       function showRecipeModal(recipeId) {
+            const recipe = recipes.find(r => r.id === recipeId);
+            if (!recipe) return;
+            
+            modalContent.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-img">
+                        <img src="${recipe.image}" alt="${recipe.title}">
+                    </div>
+                    <div class="modal-info">
+                        <h3 class="modal-title">${recipe.title}</h3>
+                        <div class="modal-meta">
+                            <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                            <span><i class="fas fa-utensils"></i> ${recipe.type}</span>
+                            <span><i class="fas fa-tags"></i> ${recipe.category.join(', ')}</span>
+                        </div>
+                        <p class="modal-desc">${recipe.description}</p>
+                        <div class="modal-tags">
+                            ${recipe.category.map(cat => `<span class="modal-tag">${cat}</span>`).join('')}
+                            ${recipe.badge ? `<span class="modal-tag">${recipe.badge}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="ingredients">
+                        <h4 class="subtitle">Ingredients</h4>
+                        <ul class="ingredients-list">
+                            ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="instructions">
+                        <h4 class="subtitle">Instructions</h4>
+                        <ol class="instructions-list">
+                            ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
+                        </ol>
+                    </div>
+                </div>
+            `;
+            
+            // Show modal
+            recipeModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            recipeModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+
+// Close modal when clicking outside
+        recipeModal.addEventListener('click', (e) => {
+            if (e.target === recipeModal) {
+                recipeModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Initialize the page
+displayRecipes(recipes);
+updateSelectedIngredients();
+
+
+
+const style = document.createElement('style');
+        style.textContent = `
+            .ingredients {
+                background: #f9f9f9;
+                padding: 5rem 0;
+            }
+            
+            .ingredients-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .ingredient-category {
+                background: white;
+                padding: 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            
+            .ingredient-category h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                color: var(--dark);
+                position: relative;
+                padding-bottom: 0.5rem;
+            }
+            
+            .ingredient-category h3::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 40px;
+                height: 3px;
+                background: var(--primary);
+            }
+            
+            .ingredient-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .ingredient-tag {
+                background: #f1f1f1;
+                color: var(--dark);
+                padding: 0.5rem 1rem;
+                border-radius: 50px;
+                font-size: 0.9rem;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            
+            .ingredient-tag:hover {
+                background: var(--primary);
+                color: white;
+                transform: translateY(-2px);
+            }
+            
+            .selected-ingredients {
+                background: white;
+                padding: 2rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                text-align: center;
+            }
+            
+            .selected-ingredients h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                color: var(--dark);
+            }
+            
+            .selected-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+                margin-bottom: 1.5rem;
+                min-height: 40px;
+            }
+            
+            .selected-tag {
+                background: var(--primary);
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 50px;
+                font-size: 0.9rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .selected-tag .remove-tag {
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+            
+            .selected-tag .remove-tag:hover {
+                transform: scale(1.2);
+            }
+            
+            .empty-message {
+                color: #666;
+                font-style: italic;
+            }
+            
+            #find-recipes-btn {
+                margin-right: 1rem;
+            }
+            
+            #find-recipes-btn:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+            
+            .no-results {
+                text-align: center;
+                grid-column: 1 / -1;
+                font-size: 1.2rem;
+                color: #666;
+                padding: 2rem;
+            }
+        `;
+        document.head.appendChild(style);
+
+
+
+
+
+// ===== NAVIGATION ACTIVE STATE MANAGEMENT =====
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+    const headerHeight = document.querySelector('nav').offsetHeight;
+    const homeSection = document.getElementById('home');
+
+    // Function to update active nav link
+    function updateActiveNav() {
+        let currentSection = '';
+        const scrollPosition = window.scrollY + headerHeight;
+
+        // Determine which section is in view
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        // Update nav links
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href').substring(1);
+            
+            // Special case for home page
+            if (!currentSection && window.scrollY < 100) {
+                if (linkHref === 'home') {
+                    link.classList.add('active');
+                }
+            } 
+            // Regular section highlighting
+            else if (linkHref === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Run on scroll and initial load
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('load', updateActiveNav);
+
+    // Smooth scrolling for nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - headerHeight,
+                    behavior: 'smooth'
+                });
+                
+                // Update active state immediately
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+});
+
+// ===== MOBILE MENU TOGGLE =====
+document.querySelector('.hamburger').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+    this.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+        document.querySelector('.hamburger').classList.remove('active');
+    });
+});
+
+// ===== SCROLL PADDING FOR FIXED NAV =====
+document.documentElement.style.scrollPaddingTop = 
+    document.querySelector('nav').offsetHeight + 'px';
+
+
+
+
+
+
+
+// Search functionality
+searchInput.addEventListener('input', handleSearchInput);
+searchInput.addEventListener('keydown', handleSearchKeydown);
+searchBtn.addEventListener('click', executeSearch);
+searchSuggestions.addEventListener('click', handleSuggestionClick);
+document.addEventListener('click', handleOutsideClick);
+
+// Search Functions
+function handleSearchInput() {
+    const searchTerm = this.value.trim().toLowerCase();
+    currentSearchTerm = searchTerm;
+    
+    if (searchTerm.length > 0) {
+        // Find matching ingredients (more flexible matching)
+        const ingredientMatches = allIngredients.filter(ingredient => {
+            // Match whole words or parts of words
+            return ingredient.includes(searchTerm) || 
+                   searchTerm.split(' ').some(term => ingredient.includes(term));
+        }).slice(0, 5); // Show top 5 ingredient matches
+        
+        // Find matching recipes
+        const recipeMatches = recipes.filter(recipe => {
+            const titleMatch = recipe.title.toLowerCase().includes(searchTerm);
+            const ingredientMatch = recipe.ingredients.some(ing => 
+                ing.toLowerCase().includes(searchTerm)
+            );
+            return titleMatch || ingredientMatch;
+        }).slice(0, 5); // Show top 5 recipe matches
+        
+        showSuggestions(ingredientMatches, recipeMatches);
+    } else {
+        hideSuggestions();
+        resetSearch();
+    }
+}
+
+function handleSearchKeydown(e) {
+    const suggestions = document.querySelectorAll('#search-suggestions div:not(.suggestion-header)');
+    
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectedSuggestionIndex = Math.min(selectedSuggestionIndex + 1, suggestions.length - 1);
+        updateSelectedSuggestion();
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedSuggestionIndex = Math.max(selectedSuggestionIndex - 1, -1);
+        updateSelectedSuggestion();
+    } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (selectedSuggestionIndex >= 0 && suggestions[selectedSuggestionIndex]) {
+            const selectedText = suggestions[selectedSuggestionIndex].textContent;
+            searchInput.value = selectedText;
+            currentSearchTerm = selectedText.toLowerCase();
+        }
+        executeSearch();
+    }
+}
+
+function handleSuggestionClick(e) {
+    if (e.target && e.target.matches('#search-suggestions div')) {
+        const clickedText = e.target.textContent.trim();
+        const isIngredient = e.target.querySelector('i.fa-carrot'); // Check if it's an ingredient suggestion
+        
+        if (isIngredient) {
+            // For ingredient suggestions, search for recipes containing that ingredient
+            searchInput.value = clickedText;
+            currentSearchTerm = clickedText.toLowerCase();
+            
+            // Filter recipes that contain this exact ingredient
+            const filteredRecipes = recipes.filter(recipe => 
+                recipe.ingredients.some(ing => 
+                    ing.toLowerCase() === clickedText.toLowerCase()
+                )
+            );
+            
+            displaySearchResults(filteredRecipes);
+        } else {
+            // For recipe suggestions, proceed with normal search
+            searchInput.value = clickedText;
+            currentSearchTerm = clickedText.toLowerCase();
+            executeSearch();
+        }
+    }
+}
+function handleOutsideClick(e) {
+    if (!searchBox.contains(e.target)) {
+        hideSuggestions();
+    }
+}
+
+
+  function showSuggestions(ingredientMatches, recipeMatches) {
+    searchSuggestions.innerHTML = '';
+    selectedSuggestionIndex = -1;
+    
+    if (ingredientMatches.length > 0) {
+        const ingredientHeader = document.createElement('div');
+        ingredientHeader.className = 'suggestion-header';
+        ingredientHeader.textContent = 'Ingredients';
+        searchSuggestions.appendChild(ingredientHeader);
+        
+        ingredientMatches.forEach(ingredient => {
+            const suggestion = document.createElement('div');
+            suggestion.innerHTML = `<i class="fas fa-carrot"></i> ${ingredient}`;
+            suggestion.addEventListener('click', () => {
+                searchInput.value = ingredient;
+                currentSearchTerm = ingredient.toLowerCase();
+                executeSearch();
+            });
+            searchSuggestions.appendChild(suggestion);
+        });
+    }
+    
+    if (recipeMatches.length > 0) {
+        const recipeHeader = document.createElement('div');
+        recipeHeader.className = 'suggestion-header';
+        recipeHeader.textContent = 'Recipes';
+        searchSuggestions.appendChild(recipeHeader);
+        
+        recipeMatches.forEach(recipe => {
+            const suggestion = document.createElement('div');
+            suggestion.innerHTML = `<i class="fas fa-utensils"></i> ${recipe.title}`;
+            suggestion.addEventListener('click', () => {
+                searchInput.value = recipe.title;
+                currentSearchTerm = recipe.title.toLowerCase();
+                executeSearch();
+            });
+            searchSuggestions.appendChild(suggestion);
+        });
+    }
+    
+    if (ingredientMatches.length > 0 || recipeMatches.length > 0) {
+        searchSuggestions.classList.add('active');
+        searchBox.classList.add('suggestions-active');
+    } else {
+        hideSuggestions();
+    }
+}
+
+function executeSearch() {
+    hideSuggestions();
+    
+    if (currentSearchTerm === '') {
+        resetSearch();
+        return;
+    }
+
+
+
+    
+     // Convert search term to lowercase for case-insensitive comparison
+    const searchTerm = currentSearchTerm.toLowerCase();
+    
+    // Filter recipes that match the search term in title, description, OR ingredients
+    const filteredRecipes = recipes.filter(recipe => {
+        // Check if search term matches any ingredient exactly
+        const ingredientMatch = recipe.ingredients.some(ing => 
+            ing.toLowerCase().includes(searchTerm)
+        );
+        
+        return (
+            recipe.title.toLowerCase().includes(searchTerm) ||
+            recipe.description.toLowerCase().includes(searchTerm) ||
+            ingredientMatch
+        );
+    });
+    
+    displaySearchResults(filteredRecipes);
+}
+function updateSelectedSuggestion() {
+    const suggestions = document.querySelectorAll('#search-suggestions div:not(.suggestion-header)');
+    suggestions.forEach((suggestion, index) => {
+        suggestion.classList.toggle('highlight', index === selectedSuggestionIndex);
+    });
+    
+    if (selectedSuggestionIndex >= 0 && suggestions[selectedSuggestionIndex]) {
+        suggestions[selectedSuggestionIndex].scrollIntoView({
+            block: 'nearest'
+        });
+    }
+}
+
+function hideSuggestions() {
+    searchSuggestions.classList.remove('active');
+    searchBox.classList.remove('suggestions-active');
+    selectedSuggestionIndex = -1;
+}
+
+
+function displaySearchResults(filteredRecipes) {
+    currentPage = 1;
+    currentRecipes = filteredRecipes;
+    displayRecipes(filteredRecipes);
+    
+    // Reset filter buttons
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === 'all') {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Scroll to results with extra space
+    setTimeout(() => {
+        if (filteredRecipes.length > 0) {
+            const firstRecipeCard = document.querySelector('.recipe-card');
+            if (firstRecipeCard) {
+                const scrollPosition = firstRecipeCard.offsetTop - 120;
+                window.scrollTo({
+                    top: scrollPosition,
+                    behavior: 'smooth'
+                });
+                
+                firstRecipeCard.style.boxShadow = '0 0 0 3px rgba(255, 107, 107, 0.5)';
+                setTimeout(() => {
+                    firstRecipeCard.style.boxShadow = '';
+                }, 2000);
+            }
+        }
+    }, 100);
+    
+    // Visual feedback
+    searchBox.classList.add('pulse');
+    setTimeout(() => searchBox.classList.remove('pulse'), 1000);
+}
+
+function resetSearch() {
+    currentPage = 1;
+    currentRecipes = [...recipes];
+    displayRecipes(recipes);
+    
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === 'all') {
+            btn.classList.add('active');
+        }
+    });
+}
+
+
+
+
+
+
+
+function getFilteredRecipes(searchTerm) {
+    return recipes.filter(recipe => 
+        recipe.title.toLowerCase().includes(searchTerm) ||
+        recipe.description.toLowerCase().includes(searchTerm) ||
+        recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
+    );
+}
+
+    
+
+
+
+     
+// Add this function to your script
+function filterByCategory(category) {
+    // Update filter buttons
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === category) {
+            btn.classList.add('active');
+        }
+    });
+    
+    const filteredRecipes = category === 'all' 
+        ? recipes 
+        : recipes.filter(recipe => recipe.category.includes(category));
+    
+    displayRecipes(filteredRecipes);
+    
+    // Scroll to recipes section if not already there
+    if (window.location.hash !== '#featured') {
+        document.querySelector('.featured').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Then update both event listeners to use this function:
+
+// For filter buttons
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        filterByCategory(button.dataset.category);
+    });
+});
+
+// For category cards
+categoryCards.forEach(card => {
+    card.addEventListener('click', () => {
+        filterByCategory(card.dataset.category);
+    });
+});
+
+// For footer category links
+document.querySelectorAll('.footer-categories .category-filter').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        filterByCategory(link.dataset.category);
+    });
+});
+function searchRecipes() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    hideSuggestions();
+    
+    if (searchTerm === '') {
+        currentPage = 1;
+        currentRecipes = [...recipes];
+        displayRecipes(recipes);
+        return;
+    }
+    
+    const filteredRecipes = recipes.filter(recipe => 
+        recipe.title.toLowerCase().includes(searchTerm) ||
+        recipe.description.toLowerCase().includes(searchTerm) ||
+        recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
+    );
+    
+    currentPage = 1;
+    currentRecipes = filteredRecipes;
+    displayRecipes(filteredRecipes);
+    
+    // Reset filter buttons
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === 'all') {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Scroll to featured section after a slight delay to allow DOM update
+    setTimeout(() => {
+        const featuredSection = document.getElementById('featured');
+        if (featuredSection) {
+            featuredSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }, 100);
+    
+    // Add visual feedback
+    searchBox.classList.add('pulse');
+    setTimeout(() => searchBox.classList.remove('pulse'), 1000);
+}
+
+        // Close suggestions when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchBox.contains(e.target)) {
+                hideSuggestions();
+            }
+        });
+
+
+
+
+
+// Smooth scrolling for footer links
+document.querySelectorAll('.footer-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        const headerHeight = document.querySelector('nav').offsetHeight;
+        
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - headerHeight,
+                behavior: 'smooth'
+            });
+            
+            // Update URL without page reload
+            if (history.pushState) {
+                history.pushState(null, null, targetId);
+            } else {
+                window.location.hash = targetId;
+            }
+            
+            // Close mobile menu if open
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+});
+
+
+// General smooth scrolling function
+function smoothScrollTo(targetId) {
+    const targetElement = document.querySelector(targetId);
+    const headerHeight = document.querySelector('nav').offsetHeight;
+    
+    if (targetElement) {
+        window.scrollTo({
+            top: targetElement.offsetTop - headerHeight,
+            behavior: 'smooth'
+        });
+        
+        // Update URL without page reload
+        if (history.pushState) {
+            history.pushState(null, null, targetId);
+        } else {
+            window.location.hash = targetId;
+        }
+    }
+}
+
+// Use this function for all smooth scrolling needs
+document.querySelectorAll('.smooth-scroll').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        smoothScrollTo(targetId);
+        
+        // Close mobile menu if open
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+    });
+});
+
+
+
+       
+
+
+        // Newsletter form submission
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                newsletterForm.reset();
+                showNotification('Thank you for subscribing to our newsletter!');
+            }, 500);
+        });
+
+        // Contact form submission
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(() => {
+                contactForm.reset();
+                showNotification('Your message has been sent successfully!');
+            }, 500);
+        });
+
+        // Show notification
+        function showNotification(message) {
+            notification.innerHTML = `<i class="fas fa-check-circle notification-icon"></i> ${message}`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        
+// Animation on scroll
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.about-img, .team-member, .category-card');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// Set initial state for animated elements
+document.querySelectorAll('.about-img, .team-member, .category-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.6s ease-out';
+});
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+
+
+
+// Firebase Configuration and Initialization
+    document.addEventListener('DOMContentLoaded', function() {
+        // Your Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyC9kDgSE37a8wAyc6XSW0xrjb1a_vs5y7k",
+            authDomain: "food-renovation-c989e.firebaseapp.com",
+            projectId: "food-renovation-c989e",
+            storageBucket: "food-renovation-c989e.appspot.com",
+            messagingSenderId: "451679606736",
+            appId: "1:451679606736:web:e64e899b7859d3d3a3cbd5",
+            measurementId: "G-HWVVYV1BN4"
+        };
+
+        // Initialize Firebase
+        if (!firebase.apps.length) {
+            try {
+                firebase.initializeApp(firebaseConfig);
+                firebase.analytics();
+                console.log("Firebase initialized successfully");
+            } catch (error) {
+                console.error("Firebase initialization error:", error);
+                return;
+            }
+        }
+
+        const db = firebase.firestore();
+
+        // Initialize forms only after Firebase is ready
+        setTimeout(() => {
+            // 1. CONTACT FORM SUBMISSION
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    };
+
+                    try {
+                        await db.collection("contactSubmissions").add(formData);
+                        showNotification('Message sent successfully!');
+                        contactForm.reset();
+                        firebase.analytics().logEvent('contact_submission');
+                    } catch (error) {
+                        console.error("Error saving contact form:", error);
+                        showNotification('Failed to send message. Please try again.');
+                    }
+                });
+            }
+
+            // 2. NEWSLETTER SIGNUP
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('newsletter-email').value;
+                    
+                    try {
+                        await db.collection("newsletterSubscribers").add({
+                            email: email,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                        showNotification('Thank you for subscribing!');
+                        newsletterForm.reset();
+                        firebase.analytics().logEvent('newsletter_signup');
+                    } catch (error) {
+                        console.error("Error saving newsletter signup:", error);
+                        showNotification('Subscription failed. Please try again.');
+                    }
+                });
+            }
+        }, 1000); // 1 second delay to ensure Firebase is fully initialized
+
+        // Basic page view tracking
+        firebase.analytics().logEvent('page_view', {
+            page_title: document.title,
+            page_path: window.location.pathname
+        });
+
+        // Helper function for notifications
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'firebase-notification';
+            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+                setTimeout(() => notification.remove(), 3000);
+            }, 100);
+        }
+    });
+
+
+
+
+    </script>
+</body>
+</html>
