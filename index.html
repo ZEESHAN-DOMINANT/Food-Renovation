@@ -6,6 +6,8 @@
     <title>Food Renovation | Modern Recipe Collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512' fill='%23ff6b6b'><path d='M416 0C304 0 224 80 224 192c0 112 80 192 192 192h18.4c21.3 0 32 25.9 17 41l-80 80c-9.4 9.4-24.6 9.4-33.9 0l-80-80c-15-15-4.4-41 17-41h18.4c79.5 0 144-64.5 144-144V16c0-8.8-7.2-16-16-16zm-288 0c-8.8 0-16 7.2-16 16v416c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V16c0-8.8-7.2-16-16-16H128z'/></svg>">
+
+
     <style>
 
         /* Global Styles */
@@ -37,6 +39,10 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            
+            width: 100%;
+            padding: 0 15px; /* Adjust padding for mobile */
+             box-sizing: border-box;
         }
         
         section {
@@ -60,6 +66,9 @@
             margin-top: 80px;
         }
        html {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Ensure full width */
+    max-width: 100%;
     scroll-padding-top: 80px; /* Prevents navbar from covering content when scrolling */
 }
         
@@ -124,6 +133,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+    
 }
 
 .nav-logo {
@@ -140,6 +150,7 @@ nav {
     /* Remove any existing padding/margin if they conflict */
     padding-right: 0;
     margin-left: 0;
+   
 }
 
 .nav-logo i {
@@ -158,8 +169,8 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
-    padding: 0 2rem;
+    gap: 1.3rem;
+    padding: 0 1rem;
 }
 
 .nav-links li {
@@ -170,17 +181,18 @@ nav {
     color: var(--light);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.16rem;
     transition: all 0.3s;
     position: relative;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 0;
+    padding: 0.4 0;
+
 }
 
 .nav-links a i {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     transition: all 0.3s;
 }
 
@@ -224,81 +236,7 @@ nav {
     transform: scale(1.1);
 }
 
-/* Mobile menu styles (keep your existing mobile styles) */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: var(--dark);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3rem;
-        padding: 0;
-        transition: all 0.5s;
-        z-index: 99;
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .nav-links li {
-        margin: 0;
-    }
-    
-    .hamburger {
-        display: block;
-    }
-    
-    .nav-links a {
-        font-size: 1.3rem;
-        gap: 0.8rem;
-    }
-    
-    .nav-links a i {
-        font-size: 1.1rem;
-    }
-}
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: var(--dark);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        transition: all 0.5s;
-        z-index: 99;
-        border-top: 3px solid var(--primary);
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .nav-links li {
-        margin: 0;
-    }
-    
-    .nav-links a {
-        font-size: 1.3rem;
-        padding: 1rem 2rem;
-    }
-    
-    .hamburger {
-        display: block;
-    }
-}
         
         /* Hero Search */
         /* Enhanced Search Bar Styles */
@@ -556,17 +494,9 @@ nav {
            gap: 2.5rem;
            margin-top: 3rem;
         }
-         @media (max-width: 992px) {
-    .recipes-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+         
 
-@media (max-width: 576px) {
-    .recipes-grid {
-        grid-template-columns: 1fr;
-    }
-}
+
 .load-more {
     display: block;
     margin: 3rem auto 0;
@@ -1461,7 +1391,7 @@ nav {
             line-height: 1.8;
             margin-bottom: 1.5rem;
             text-align: justify;
-            text-justify: inter-word;
+            
            
             
         }
@@ -1661,10 +1591,10 @@ nav {
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 60px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 60px);
                 background: var(--dark);
                 flex-direction: column;
                 align-items: center;
@@ -1672,6 +1602,7 @@ nav {
                 gap: 2rem;
                 transition: all 0.5s;
                 z-index: 99;
+                
             }
             
             .nav-links.active {
@@ -1758,7 +1689,541 @@ nav {
             .footer-content {
                 grid-template-columns: 1fr;
             }
-        }
+        } 
+
+
+/* ===== MOBILE-SPECIFIC STYLES ===== */
+@media (max-width: 768px) {
+    /* Header adjustments */
+    header {
+        height: 90vh;
+        margin-top: 60px;
+        
+        padding: 1rem 0;
+    }
+    
+    .hero-logo {
+        font-size: 2.2rem;
+    }
+    .selected-ingredients .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem auto;
+    }
+    .tagline {
+        font-size: 1.2rem;
+        padding: 0 15px;
+    }
+    
+    .search-container {
+        padding: 0 15px;
+    }
+    
+    .search-box input {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    /* Navigation adjustments */
+    nav {
+        height: 60px;
+    }
+    
+    .nav-container {
+        padding: 0.5rem 0;
+       margin: 2.5px;
+       padding: 2px;;
+    }
+    
+    .nav-logo {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+    }
+    
+    .hamburger {
+        font-size: 1.3rem;
+        padding-right: 1rem;
+    }
+    
+    /* Section spacing */
+    section {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        padding: 0 15px;
+    }
+    
+    /* Recipe cards */
+    .recipe-card {
+        margin: 0 10px;
+    }
+    
+    .recipe-title {
+        font-size: 1.3rem;
+    }
+    
+    .recipe-desc {
+        font-size: 0.9rem;
+    }
+    
+    /* Modal adjustments */
+    .recipe-modal {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    
+    .modal-header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .modal-img {
+        height: 250px;
+    }
+    
+    .modal-title {
+        font-size: 1.8rem;
+    }
+    
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Team section */
+    .team-member {
+        padding: 1.5rem;
+    }
+    
+    .member-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* Newsletter form */
+    .newsletter-form {
+        flex-direction: column;
+        border-radius: 8px;
+    }
+    
+    .newsletter-form input {
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .newsletter-form button {
+        border-radius: 0 0 8px 8px;
+        padding: 1rem;
+    }
+    
+    /* Footer adjustments */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 15px;
+    }
+    
+    .footer-column {
+        margin-bottom: 1.5rem;
+    }
+    
+    .copyright {
+        padding-top: 2rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Ingredients section */
+    .ingredients-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    
+    .selected-ingredients {
+        margin: 0 15px;
+    }
+    
+    /* Contact form */
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    
+    .contact-info, .contact-form {
+        padding: 1.5rem;
+    }
+    
+    /* Prevent text overflow */
+    .recipe-title, .member-name, .category-title {
+        word-break: break-word;
+    }
+    
+    /* Button sizes */
+    .btn, .filter-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Adjust spacing for mobile */
+    .filter-buttons {
+        margin: 1.5rem 0;
+        padding: 0 10px;
+    }
+    
+    .recipes-grid {
+        gap: 1.5rem;
+        padding: 0 10px;
+    }
+    
+    /* Modal close button */
+    .close-modal {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    /* Notification positioning */
+    .notification {
+        bottom: 80px;
+        right: 15px;
+        left: 15px;
+        width: auto;
+    }
+}
+
+/* Additional mobile-specific tweaks for very small screens */
+@media (max-width: 480px) {
+    .hero-logo {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .recipe-content {
+        padding: 1.2rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.3rem;
+    }
+    
+    /* Team member cards */
+    .team-member {
+        padding: 1.2rem;
+    }
+    
+    .member-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* Footer links */
+    .footer-links ul li a, 
+    .footer-categories ul li a {
+        font-size: 0.9rem;
+    }
+    
+    /* Contact items */
+    .contact-item {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+
+
+/* ==============================================
+   TABLET/DESKTOP HYBRID MODE (769px - 980px)
+   ============================================== */
+
+   @media (min-width: 769px) and (max-width: 980px) {
+  
+  /* ---------- GLOBAL ADJUSTMENTS ---------- */
+  :root {
+    font-size: 15px; /* Slightly reduce base font size */
+  }
+  .container {
+    padding: 0 25px; /* Adjust container padding */
+  }
+  
+  section {
+    padding: 4rem 0; /* Reduce section padding */
+  }
+  
+  .section-title {
+    font-size: 2.2rem; /* Slightly smaller headings */
+    margin-bottom: 1rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem; /* Adjust subtitle size */
+    margin-bottom: 2rem;
+  }
+  
+  /* ---------- NAVIGATION BAR ---------- */
+  .nav-container {
+    padding: 0.8rem 0.3rem; /* Reduce padding */
+  }
+  
+  .nav-logo {
+    font-size: 1.6rem; /* Smaller logo */
+    padding-left: 1rem; /* Less padding */
+  }
+  
+  .nav-links {
+    gap: 0.8rem; /* Reduce gap between nav items */
+  }
+  
+  .nav-links a {
+    font-size: 0.95rem; /* Slightly smaller nav text */
+    padding: 0.5rem 0.7rem;
+  }
+  
+  /* ---------- HERO SECTION ---------- */
+  header {
+    margin-top: 0;
+    height: 80vh; /* Reduce hero height */
+  }
+  .hero-logo {  
+    font-size: 3rem; /* Smaller hero logo */
+  }
+  
+  .tagline {
+    font-size: 1.4rem; /* Adjust tagline size */
+    max-width: 90%; /* Allow more width */
+  }
+  
+  .search-box input {
+    padding: 1rem 1.2rem; /* Adjust search input */
+    font-size: 1rem;
+  }
+  
+  /* ---------- RECIPE CARDS ---------- */
+  .recipes-grid {
+    grid-template-columns: repeat(3, 1fr); /* 2 columns instead of 3 */
+    gap: 2rem;
+  }
+  
+  .recipe-card {
+    height: 22vh ;
+    margin-bottom: 1rem;
+  }
+  
+  .recipe-img {
+    height: 200px; /* Slightly smaller images */
+  }
+  
+  .recipe-title {
+    font-size: 1.3rem; /* Adjust title size */
+  }
+  
+  .recipe-desc {
+    font-size: 0.9rem; /* Smaller description */
+  }
+  
+  /* ---------- INGREDIENTS SECTION ---------- */
+  .ingredients-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1.5rem;
+  }
+  
+  .ingredient-category {
+    padding: 1.2rem; /* Reduce padding */
+  }
+  
+  /* ---------- CATEGORIES SECTION ---------- */
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+  
+  .category-card {
+    height: 10vh;
+    padding: 1.5rem 1rem; /* Adjust padding */
+  }
+  
+  .category-icon {
+    font-size: 2.5rem; /* Smaller icons */
+  }
+ .
+  /* ---------- ABOUT SECTION ---------- */
+  .about-content {
+    gap: 3rem; /* Reduce gap */
+  }
+ 
+  .about-text p{
+   font-size: 10px; 
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns */
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    padding: 1.2rem; /* Adjust padding */
+  }
+  .stat-text{
+      font-size: 11px;
+  }
+  /* ---------- TEAM SECTION ---------- */
+  .team-members {
+    gap: 25px;
+    grid-template-columns: repeat(3, 1fr); /* 2 columns */
+  }
+  .team-member{
+    height: 480px;
+
+  }
+  .member-name{
+      font-size: 23px;
+  }
+  .member-role{
+      font-size: 17px;
+  }
+  .member-bio{
+      font-size: 15px;
+  }
+
+  .member-img {
+    width: 160px; /* Slightly smaller images */
+    height:160px;
+  }
+  
+  /* ---------- NEWSLETTER SECTION ---------- */
+  .newsletter {
+    padding: 4rem 0; /* Reduce padding */
+  }
+  
+  .newsletter-form {
+    max-width: 500px; /* Narrower form */
+  }
+  
+  /* ---------- CONTACT SECTION ---------- */
+  .section-subtitle{
+      font-size: 10px;
+  }
+  .contact-container {
+    flex-direction: row; /* Stack contact columns */
+    gap: 2rem;
+  }
+  .contact-info p{
+      font-size: 10px;
+  }
+  .form-group label{
+      font-size: 12px;
+      font-weight: 400;
+  }
+  .form-control{
+      border-radius: 8px;
+  }
+  
+  /* ---------- FOOTER ---------- */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 2rem;
+  }
+  
+  /* ---------- UTILITY CLASSES ---------- */
+  .btn {
+    padding: 0.8rem 1.8rem; /* Slightly smaller buttons */
+    font-size: 0.95rem;
+  }
+  
+  /* ---------- MODAL ADJUSTMENTS ---------- */
+  .recipe-modal {
+    padding: 2rem; /* Reduce padding */
+  }
+  
+  .modal-header {
+    gap: 2rem; /* Reduce gap */
+  }
+  
+  .modal-img {
+    height: 300px; /* Slightly smaller image */
+  }
+  
+  .modal-title {
+    font-size: 1.8rem; /* Smaller title */
+  }
+  .footer-content{
+    
+    grid-template-columns: repeat(4,1fr);
+    gap: 50px;
+}
+.footer-about p{
+    font-size: 5px;
+    
+}
+.footer-categories ul li a,
+.footer-links ul li a{
+    font-size: 17px;
+}
+.footer-column h3{
+    
+    font-size: 11px;
+}
+.copyright p{
+    font-size: 7px;
+}
+}
+
+/* Additional tweak for very dense 769-800px range */
+@media (min-width: 769px) and (max-width: 800px) {
+  .nav-links a {
+    font-size: 0.9rem; /* Even smaller nav text */
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .recipes-grid {
+    gap: 1.5rem; /* Tighter grid */
+  }
+}
+
+
+
+
+
+
+        
     </style>
 </script>
 </head>
@@ -1801,7 +2266,7 @@ nav {
                     <div class="search-suggestions" id="search-suggestions"></div>
                 </div>
             </div>
-            <a href="#featured" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+            <a href="#" class="scroll-down" id="scroll-down-btn"><i class="fas fa-chevron-down"></i></a>
         </div>
     </header>
 
@@ -2053,7 +2518,7 @@ nav {
             <!-- Member 3 -->
             <div class="team-member">
                 <div class="member-img">
-                    <img src="./images/3n.jpg" alt="3n">
+                    <img src="./images/3n.jpg" alt="32n">
                 </div>
                 <h3 class="member-name">Hamza Rasheed</h3>
                 <p class="member-role">Food Scientist</p>
@@ -2079,7 +2544,7 @@ nav {
                     <img src="./images/4n.jpg" alt="4n">
                 </div>
                 <h3 class="member-name">Usman Maqbool</h3>
-                <p class="member-role">Pastry Chef</p>
+                <p class="member-role">Dietary Specialist</p>
                 <p class="member-bio">Usman's desserts are works of art that engage all the senses while maintaining perfect balance and flavor.</p>
                <div class="social-links">
     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -2322,6 +2787,7 @@ nav {
                     <li><a href="#featured" class="smooth-scroll">Recipes</a></li>
                     <li><a href="#ingredients" class="smooth-scroll">Ingredients</a></li>
                     <li><a href="#about" class="smooth-scroll">About</a></li>
+                    <li><a href="#team" class="smooth-scroll">Team</a></li>
                     <li><a href="#contact" class="smooth-scroll">Contact</a></li>
                 </ul>
             </div>
@@ -2365,7 +2831,6 @@ nav {
 
 
 
-<!-- Add these before your existing script tag -->
 <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
@@ -2992,20 +3457,28 @@ let selectedSuggestionIndex = -1;
         // Display all recipes initially
         displayRecipes(recipes);
 
-        // Mobile menu toggle
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+        
 
-        // Close mobile menu when clicking a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
 
+        // Smooth scroll for chevron down button
+document.getElementById('scroll-down-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const featuredSection = document.getElementById('featured');
+    const headerHeight = document.querySelector('nav').offsetHeight;
+    
+    window.scrollTo({
+        top: featuredSection.offsetTop - headerHeight,
+        behavior: 'smooth'
+    });
+    
+    // Update URL without page reload
+    if (history.pushState) {
+        history.pushState(null, null, '#featured');
+    } else {
+        window.location.hash = '#featured';
+    }
+});
+        
         // Smooth scrolling for navigation links
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -4098,7 +4571,22 @@ window.addEventListener('load', animateOnScroll);
         if (!firebase.apps.length) {
             try {
                 firebase.initializeApp(firebaseConfig);
-                firebase.analytics();
+                
+                // Initialize Analytics with enhanced settings
+                const analytics = firebase.analytics();
+                
+                // Enable automatic screen tracking for SPA (Single Page Application)
+                analytics.setAnalyticsCollectionEnabled(true);
+                
+                // Set user properties for better segmentation
+                analytics.setUserProperties({
+                    return_visitor: localStorage.getItem('visited_before') ? 'true' : 'false',
+                    device_type: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop'
+                });
+                
+                // Mark user as returning visitor for future visits
+                localStorage.setItem('visited_before', 'true');
+                
                 console.log("Firebase initialized successfully");
             } catch (error) {
                 console.error("Firebase initialization error:", error);
@@ -4108,80 +4596,242 @@ window.addEventListener('load', animateOnScroll);
 
         const db = firebase.firestore();
 
-        // Initialize forms only after Firebase is ready
-        setTimeout(() => {
-            // 1. CONTACT FORM SUBMISSION
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    const formData = {
-                        name: document.getElementById('name').value,
-                        email: document.getElementById('email').value,
-                        subject: document.getElementById('subject').value,
-                        message: document.getElementById('message').value,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    };
+        // ===== TRACKING FUNCTIONS =====
+        
+        // Track page views with additional parameters
+        function trackPageView() {
+            firebase.analytics().logEvent('page_view', {
+                page_title: document.title,
+                page_path: window.location.pathname + window.location.search,
+                page_location: window.location.href,
+                engagement_time_msec: 100 // Default engagement time
+            });
+            
+            // Track session start
+            firebase.analytics().logEvent('session_start');
+        }
 
-                    try {
-                        await db.collection("contactSubmissions").add(formData);
-                        showNotification('Message sent successfully!');
-                        contactForm.reset();
-                        firebase.analytics().logEvent('contact_submission');
-                    } catch (error) {
-                        console.error("Error saving contact form:", error);
-                        showNotification('Failed to send message. Please try again.');
-                    }
+        // Track time spent on page
+        let startTime = Date.now();
+        function trackTimeSpent() {
+            const timeSpent = Date.now() - startTime;
+            if (timeSpent > 1000) { // Only track if spent more than 1 second
+                firebase.analytics().logEvent('time_spent', {
+                    duration_msec: timeSpent,
+                    page_title: document.title
                 });
             }
+            startTime = Date.now(); // Reset for next interval
+        }
 
-            // 2. NEWSLETTER SIGNUP
-            const newsletterForm = document.getElementById('newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    const email = document.getElementById('newsletter-email').value;
-                    
-                    try {
-                        await db.collection("newsletterSubscribers").add({
-                            email: email,
-                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                        });
-                        showNotification('Thank you for subscribing!');
-                        newsletterForm.reset();
-                        firebase.analytics().logEvent('newsletter_signup');
-                    } catch (error) {
-                        console.error("Error saving newsletter signup:", error);
-                        showNotification('Subscription failed. Please try again.');
-                    }
-                });
+        // Track scroll depth
+        function trackScrollDepth() {
+            const scrollDepth = Math.round(
+                (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100
+            );
+            
+            if (scrollDepth > 25) { // Only log at 25%, 50%, 75%, 100% to reduce noise
+                const depthLevel = Math.floor(scrollDepth / 25) * 25;
+                if (depthLevel > 0 && depthLevel <= 100) {
+                    firebase.analytics().logEvent('scroll_depth', {
+                        depth_percent: depthLevel,
+                        page_title: document.title
+                    });
+                }
             }
-        }, 1000); // 1 second delay to ensure Firebase is fully initialized
+        }
 
-        // Basic page view tracking
-        firebase.analytics().logEvent('page_view', {
-            page_title: document.title,
-            page_path: window.location.pathname
+        // Initialize tracking
+        trackPageView();
+        
+        // Set up periodic tracking
+        const trackingInterval = setInterval(() => {
+            trackTimeSpent();
+            trackScrollDepth();
+        }, 10000); // Every 10 seconds
+
+        // Track when user leaves the page
+        window.addEventListener('beforeunload', () => {
+            trackTimeSpent();
+            clearInterval(trackingInterval);
         });
 
-        // Helper function for notifications
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.className = 'firebase-notification';
-            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
-            document.body.appendChild(notification);
+        // ===== FORM SUBMISSION HANDLING =====
+        
+        // 1. CONTACT FORM SUBMISSION
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                };
+
+                try {
+                    // Save to Firestore
+                    await db.collection("contactSubmissions").add(formData);
+                    
+                    // Track in Analytics
+                    firebase.analytics().logEvent('contact_submission', {
+                        form_name: 'contact_form'
+                    });
+                    
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                } catch (error) {
+                    console.error("Error saving contact form:", error);
+                    
+                    // Track error in Analytics
+                    firebase.analytics().logEvent('form_error', {
+                        form_name: 'contact_form',
+                        error: error.message
+                    });
+                    
+                    showNotification('Failed to send message. Please try again.');
+                }
+            });
+        }
+
+        // 2. NEWSLETTER SIGNUP FORM
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Get email
+                const email = document.getElementById('newsletter-email').value;
+                
+                try {
+                    // Save to Firestore
+                    await db.collection("newsletterSubscribers").add({
+                        email: email,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    
+                    // Track in Analytics
+                    firebase.analytics().logEvent('newsletter_signup', {
+                        method: 'email'
+                    });
+                    
+                    // Track as sign_up event (important for conversion tracking)
+                    firebase.analytics().logEvent('sign_up', {
+                        method: 'email'
+                    });
+                
+                    
+                    // Reset form
+                    newsletterForm.reset();
+                    
+                } catch (error) {
+                    console.error("Error saving newsletter signup:", error);
+                    
+                    // Track error in Analytics
+                    firebase.analytics().logEvent('form_error', {
+                        form_name: 'newsletter_form',
+                        error: error.message
+                    });
+                    
+                    showNotification('Subscription failed. Please try again.');
+                }
+            });
+        }
+
+        // ===== INTERACTION TRACKING =====
+        
+        // Track recipe views
+        document.addEventListener('click', (e) => {
+            // Track clicks on recipe cards
+            if (e.target.closest('.recipe-card') || e.target.closest('.view-recipe')) {
+                const recipeId = e.target.closest('[data-id]')?.dataset.id;
+                if (recipeId) {
+                    firebase.analytics().logEvent('view_recipe', {
+                        recipe_id: recipeId,
+                        recipe_name: e.target.closest('.recipe-card')?.querySelector('.recipe-title')?.textContent
+                    });
+                }
+            }
             
-            setTimeout(() => {
+            // Track search events
+            if (e.target === searchBtn || e.target.closest('#search-btn')) {
+                firebase.analytics().logEvent('search', {
+                    search_term: searchInput.value,
+                    result_count: currentRecipes.length
+                });
+            }
+        });
+
+        // Track category filter changes
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                firebase.analytics().logEvent('filter_recipes', {
+                    category: button.dataset.category
+                });
+            });
+        });
+
+        // ===== ERROR TRACKING =====
+        
+        window.addEventListener('error', (event) => {
+            firebase.analytics().logEvent('error', {
+                error_message: event.message,
+                error_stack: event.error?.stack,
+                error_filename: event.filename,
+                error_lineno: event.lineno,
+                error_colno: event.colno
+            });
+        });
+
+        // ===== USER ENGAGEMENT TRACKING =====
+        
+        // Track when user becomes idle (no interaction for 30 seconds)
+        let idleTimer;
+        function resetIdleTimer() {
+            clearTimeout(idleTimer);
+            idleTimer = setTimeout(() => {
+                firebase.analytics().logEvent('user_idle');
+            }, 30000); // 30 seconds
+        }
+
+        // Reset idle timer on any user interaction
+        ['mousemove', 'keydown', 'scroll', 'click'].forEach(event => {
+            window.addEventListener(event, resetIdleTimer);
+        });
+        resetIdleTimer();
+
+        // ===== NOTIFICATION FUNCTION =====
+        
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                notification.innerHTML = `<i class="fas fa-check-circle notification-icon"></i> ${message}`;
                 notification.classList.add('show');
-                setTimeout(() => notification.remove(), 3000);
-            }, 100);
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
         }
     });
 
 
+// Additional JavaScript to enforce desktop behavior
+if (navigator.userAgent.match(/Mobile/) && window.innerWidth <= 1280 && window.innerWidth > 768) {
+    document.write('<meta name="viewport" content="width=1200, initial-scale=1">');
+    document.documentElement.style.overflowX = 'auto';
+    document.body.style.minWidth = '1200px';
+}
 
+
+
+        
 
     </script>
 </body>
